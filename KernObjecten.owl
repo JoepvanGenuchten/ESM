@@ -3,6 +3,7 @@
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix xml: <http://www.w3.org/XML/1998/namespace> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix kern: <https://w3id.org/netbeheer/def/KernObjecten#> .
 @prefix obda: <https://w3id.org/obda/vocabulary#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @base <https://w3id.org/netbeheer/def/KernObjecten> .
@@ -863,24 +864,24 @@ xsd:date rdf:type rdfs:Datatype .
 
 
 ###  https://w3id.org/netbeheer/def/KernObjecten#behoortTot
-:behoortTot rdf:type owl:ObjectProperty ;
-            owl:inverseOf :bevat ;
-            rdf:type owl:TransitiveProperty ;
-            rdfs:domain :GeidentificeerdObject ;
-            rdfs:range :GeidentificeerdObject ;
-            <http://purl.org/dc/elements/1.1/creator> "AL12686"^^xsd:string ;
-            <http://purl.org/dc/elements/1.1/date> "2019-09-05T14:22:41Z"^^xsd:dateTime ;
-            <http://www.w3.org/2004/02/skos/core#definition> "de meest generieke aggregatie relatie." ;
-            <http://www.w3.org/2004/02/skos/core#example> "een schakelaar behoortTot een veld" .
+kern:behoortTot rdf:type owl:ObjectProperty ;
+                owl:inverseOf kern:bevat ;
+                rdf:type owl:TransitiveProperty ;
+                rdfs:domain kern:GeidentificeerdObject ;
+                rdfs:range kern:GeidentificeerdObject ;
+                <http://purl.org/dc/elements/1.1/creator> "AL12686"^^xsd:string ;
+                <http://purl.org/dc/elements/1.1/date> "2019-09-05T14:22:41Z"^^xsd:dateTime ;
+                <http://www.w3.org/2004/02/skos/core#definition> "de meest generieke aggregatie relatie." ;
+                <http://www.w3.org/2004/02/skos/core#example> "een schakelaar behoortTot een veld" .
 
 
 ###  https://w3id.org/netbeheer/def/KernObjecten#bevat
-:bevat rdf:type owl:ObjectProperty ,
-                owl:TransitiveProperty ;
-       <http://purl.org/dc/elements/1.1/creator> "AL12686"^^xsd:string ;
-       <http://purl.org/dc/elements/1.1/date> "2019-09-05T14:24:29Z"^^xsd:dateTime ;
-       <http://www.w3.org/2004/02/skos/core#definition> "de meest generieke containment relatie" ;
-       <http://www.w3.org/2004/02/skos/core#example> "een veld bevat een schakelaar" .
+kern:bevat rdf:type owl:ObjectProperty ,
+                    owl:TransitiveProperty ;
+           <http://purl.org/dc/elements/1.1/creator> "AL12686"^^xsd:string ;
+           <http://purl.org/dc/elements/1.1/date> "2019-09-05T14:24:29Z"^^xsd:dateTime ;
+           <http://www.w3.org/2004/02/skos/core#definition> "de meest generieke containment relatie" ;
+           <http://www.w3.org/2004/02/skos/core#example> "een veld bevat een schakelaar" .
 
 
 #################################################################
@@ -1152,12 +1153,12 @@ rdfs:Class rdf:type owl:Class .
 
 
 ###  https://w3id.org/netbeheer/def/KernObjecten#GeidentificeerdObject
-:GeidentificeerdObject rdf:type owl:Class ;
-                       <http://purl.org/dc/elements/1.1/creator> "AL12686"^^xsd:string ;
-                       <http://purl.org/dc/elements/1.1/date> "2019-09-05T14:17:37Z"^^xsd:dateTime ;
-                       <http://purl.org/dc/terms/conformsTo> "IEC-CIM"@en ;
-                       rdfs:isDefinedBy "cim:IdentifiedObject" ;
-                       <http://www.w3.org/2004/02/skos/core#definition> "This is a root class to provide common identification for all classes needing identification and naming attributes."@en .
+kern:GeidentificeerdObject rdf:type owl:Class ;
+                           <http://purl.org/dc/elements/1.1/creator> "AL12686"^^xsd:string ;
+                           <http://purl.org/dc/elements/1.1/date> "2019-09-05T14:17:37Z"^^xsd:dateTime ;
+                           <http://purl.org/dc/terms/conformsTo> "IEC-CIM"@en ;
+                           rdfs:isDefinedBy "cim:IdentifiedObject" ;
+                           <http://www.w3.org/2004/02/skos/core#definition> "This is a root class to provide common identification for all classes needing identification and naming attributes."@en .
 
 
 #################################################################
