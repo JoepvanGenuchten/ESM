@@ -24,6 +24,11 @@
 <http://purl.org/dc/elements/1.1/date> rdf:type owl:AnnotationProperty .
 
 
+###  http://www.w3.org/2004/02/skos/core#example
+<http://www.w3.org/2004/02/skos/core#example> rdf:type owl:AnnotationProperty ;
+                                              rdfs:subPropertyOf rdfs:comment .
+
+
 #################################################################
 #    Object Properties
 #################################################################
@@ -31,15 +36,31 @@
 ###  https://w3id.org/netbeheer/def/KernObjecten#BehoortTot
 :BehoortTot rdf:type owl:ObjectProperty ;
             owl:inverseOf :Bevat ;
-            <http://purl.org/dc/elements/1.1/creator> "AL12686"^^xsd:string ;
-            <http://purl.org/dc/elements/1.1/date> "2019-09-18T07:28:53Z"^^xsd:dateTime .
+            rdfs:domain [ rdf:type owl:Restriction ;
+                          owl:onProperty :Bevat ;
+                          owl:someValuesFrom :GeidentificeerdObject
+                        ] ;
+            rdfs:range [ rdf:type owl:Restriction ;
+                         owl:onProperty :Bevat ;
+                         owl:someValuesFrom :GeidentificeerdObject
+                       ] ;
+            rdfs:comment "meest generieke relatie van een element naar een verzameling"@nl .
 
 
 ###  https://w3id.org/netbeheer/def/KernObjecten#Bevat
 :Bevat rdf:type owl:ObjectProperty ,
                 owl:TransitiveProperty ;
+       rdfs:domain [ rdf:type owl:Restriction ;
+                     owl:onProperty :BehoortTot ;
+                     owl:someValuesFrom :GeidentificeerdObject
+                   ] ;
+       rdfs:range [ rdf:type owl:Restriction ;
+                    owl:onProperty :BehoortTot ;
+                    owl:someValuesFrom :GeidentificeerdObject
+                  ] ;
        <http://purl.org/dc/elements/1.1/creator> "AL12686"^^xsd:string ;
-       <http://purl.org/dc/elements/1.1/date> "2019-09-18T07:28:38Z"^^xsd:dateTime .
+       <http://purl.org/dc/elements/1.1/date> "2019-09-18T07:28:38Z"^^xsd:dateTime ;
+       rdfs:comment "Meest generieke relatie van een verzameling naar een element."@nl .
 
 
 #################################################################
